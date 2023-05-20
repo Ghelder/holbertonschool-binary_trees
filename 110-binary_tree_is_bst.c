@@ -71,7 +71,7 @@ int is_sorted(list_t *root)
 
 	while (temp->next)
 	{
-		if (temp->len < temp->next->len)
+		if (temp->len <= temp->next->len)
 			return (0);
 		temp = temp->next;
 	}
