@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
+#include <limits.h>
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -22,6 +23,20 @@ struct binary_tree_s
 	struct binary_tree_s *right;
 };
 
+/**
+ * struct list_s - singly linked list
+ * @str: string - (malloc'ed string)
+ * @len: length of the string
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ */
+typedef struct list_s
+{
+	int len;
+	struct list_s *next;
+} list_t;
+
 typedef struct binary_tree_s binary_tree_t;
 typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
@@ -38,6 +53,7 @@ int binary_tree_is_full(const binary_tree_t *tree);
 int binary_tree_is_leaf(const binary_tree_t *node);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 int binary_tree_is_root(const binary_tree_t *node);
+int binary_tree_is_bst(const binary_tree_t *tree);
 size_t binary_tree_depth(const binary_tree_t *tree);
 size_t binary_tree_height(const binary_tree_t *tree);
 size_t binary_tree_leaves(const binary_tree_t *tree);
