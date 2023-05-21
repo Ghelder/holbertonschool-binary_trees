@@ -12,6 +12,8 @@ bst_t *check_node_right(bst_t *temp, int value)
 {
 	int flag = 0;
 
+	if (temp->right)
+		temp = temp->right;
 	while (1)
 	{
 		flag = 0;
@@ -19,17 +21,21 @@ bst_t *check_node_right(bst_t *temp, int value)
 		{
 			if (value == temp->n)
 				return (NULL);
-			temp = temp->right;
 			if (value < temp->n)
 			{
 				flag = 1;
 				break;
 			}
+			temp = temp->right;
 		}
 		if (flag && temp->left)
 			temp = temp->left;
+		else if (temp->left && value < temp->n)
+			temp = temp->left;
 		else
 		{
+			if (temp->n == value)
+				return (NULL);
 			if (value < temp->n)
 			{
 				temp->left = binary_tree_node(temp, value);
@@ -55,6 +61,8 @@ bst_t *check_node_left(bst_t *temp, int value)
 
 	int flag = 0;
 
+	if (temp->left)
+		temp = temp->left;
 	while (1)
 	{
 		flag = 0;
@@ -71,8 +79,12 @@ bst_t *check_node_left(bst_t *temp, int value)
 		}
 		if (flag && temp->right)
 			temp = temp->right;
+		else if (temp->right && value > temp->n)
+			temp = temp->right;
 		else
 		{
+			if (temp->n == value)
+				return (NULL);
 			if (value < temp->n)
 			{
 				temp->left = binary_tree_node(temp, value);
