@@ -51,6 +51,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 bst_t *bst_insert(bst_t **tree, int value);
 bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
+bst_t *bst_remove(bst_t *root, int value);
 int binary_tree_balance(const binary_tree_t *tree);
 int binary_tree_is_full(const binary_tree_t *tree);
 int binary_tree_is_leaf(const binary_tree_t *node);
