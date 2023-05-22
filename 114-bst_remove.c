@@ -20,9 +20,9 @@ void two_children(bst_t **root)
 	else if (temp->right->right)
 	{
 		temp->n = temp->right->n;
-		temp->right->n = temp->right->right->n;
-		remove = temp->right->right;
-		temp->right->right = NULL;
+		remove = temp->right;
+		temp->right->right->parent = temp;
+		temp->right = temp->right->right;
 		free(remove);
 	}
 
